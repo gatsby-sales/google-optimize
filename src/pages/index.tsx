@@ -199,3 +199,6 @@ export const Head: HeadFC = () => {
     </>
   );
 };
+export async function getServerData() {
+  return true;
+}
