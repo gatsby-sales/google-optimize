@@ -198,9 +198,9 @@ export const Head: HeadFC = () => {
       <title>Home Page</title>
       <Script
         src={`https://www.googletagmanager.com/gtag/js?id=G-0M4VLT4RRY`}
-        strategy="off-main-thread"
+        strategy="idle"
       />
-      <Script id="gtag-config" strategy="off-main-thread" forward={[`gtag`]}>
+      <Script id="gtag-config" strategy="idle" forward={[`gtag`]}>
         {`
 window.dataLayer = window.dataLayer || []
 window.gtag = function gtag() { window.dataLayer.push(arguments) }
