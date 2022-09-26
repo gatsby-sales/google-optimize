@@ -210,7 +210,6 @@ gtag('config', G-0M4VLT4RRY, { page_path: location ? location.pathname + locatio
       </Script>
       <Script
         src={`https://www.googleoptimize.com/optimize.js?id=OPT-PBML2V3`}
-        strategy="off-main-thread"
       />
     </>
   );
