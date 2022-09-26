@@ -196,6 +196,7 @@ export const Head: HeadFC = () => {
   return (
     <>
       <title>Home Page</title>
+      <script src="https://www.googleoptimize.com/optimize.js?id=OPT-PBML2V3"></script>
       <Script
         src={`https://www.googletagmanager.com/gtag/js?id=G-0M4VLT4RRY`}
         strategy="idle"
@@ -208,9 +209,9 @@ gtag('js', new Date())
 gtag('config', G-0M4VLT4RRY, { page_path: location ? location.pathname + location.search + location.hash : undefined })
 `}
       </Script>
-      <Script
+      {/* <Script
         src={`https://www.googleoptimize.com/optimize.js?id=OPT-PBML2V3`}
-      />
+      /> */}
     </>
   );
 };
