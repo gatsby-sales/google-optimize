@@ -196,22 +196,18 @@ export const Head: HeadFC = () => {
   return (
     <>
       <title>Home Page</title>
-      <script src="https://www.googleoptimize.com/optimize.js?id=OPT-PBML2V3"></script>
-      <Script
+      <script
         src={`https://www.googletagmanager.com/gtag/js?id=G-0M4VLT4RRY`}
-        strategy="idle"
       />
-      <Script id="gtag-config" strategy="idle" forward={[`gtag`]}>
+      <script>
         {`
-window.dataLayer = window.dataLayer || []
-window.gtag = function gtag() { window.dataLayer.push(arguments) }
-gtag('js', new Date())
-gtag('config', G-0M4VLT4RRY, { page_path: location ? location.pathname + location.search + location.hash : undefined })
-`}
-      </Script>
-      {/* <Script
-        src={`https://www.googleoptimize.com/optimize.js?id=OPT-PBML2V3`}
-      /> */}
+          window.dataLayer = window.dataLayer || []
+          window.gtag = function gtag() { window.dataLayer.push(arguments) }
+          gtag('js', new Date())
+          gtag('config', G-0M4VLT4RRY, { page_path: location ? location.pathname + location.search + location.hash : undefined })
+        `}
+      </script>
+      <script src="https://www.googleoptimize.com/optimize.js?id=OPT-PBML2V3"></script>
     </>
   );
 };
