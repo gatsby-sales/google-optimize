@@ -1,3 +1,2 @@
-exports.onRenderBody = ({ setHeadComponents }, pluginOptions) => {
-  setHeadComponents([HeadComponents]);
-};
+import PageElement from "./wrapPageElement";
+export const wrapPageElement = PageElement;
