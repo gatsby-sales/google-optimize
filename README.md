@@ -4,10 +4,8 @@
   </a>
 </p>
 <h1 align="center">
-  Gatsby minimal TypeScript starter
+  Google Optimize w/Gatsby
 </h1>
-
-## Google Optimize w/Gatsby
 
 `index.tsx` has the scripts. The 'anti-flicker' script imo is a super hacky workaround for above-the-fold A/B tests where the starting HTML would be apparent before React hydrates; it includes a timeout that should be set as low as possible.
 
