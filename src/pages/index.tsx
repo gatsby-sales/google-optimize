@@ -47,7 +47,7 @@ export const Head: HeadFC = () => {
     window.dataLayer = window.dataLayer || []
     window.gtag = function gtag() { window.dataLayer.push(arguments) }
     gtag('js', new Date())
-    gtag('config', G-0M4VLT4RRY, { page_path: location ? location.pathname + location.search + location.hash : undefined })
+    gtag('config', 'G-0M4VLT4RRY', { page_path: location ? location.pathname + location.search + location.hash : undefined })
   `}
       </Script>
       <Script
