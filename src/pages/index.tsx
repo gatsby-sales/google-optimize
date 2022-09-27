@@ -2,12 +2,27 @@ import * as React from "react";
 import { Script } from "gatsby";
 import type { HeadFC } from "gatsby";
 
+const pageStyles = {
+  color: "#232129",
+  padding: 96,
+  fontFamily: "-apple-system, Roboto, sans-serif, serif",
+};
+const headingStyles = {
+  marginTop: 0,
+  marginBottom: 64,
+  maxWidth: 320,
+};
+const headingAccentStyles = {
+  color: "#663399",
+};
 export default function IndexPage() {
   return (
-    <main>
-      <h1>
+    <main style={pageStyles}>
+      <h1 style={headingStyles}>
         Gatsby + Google Optimize&nbsp;
-        <span>— you're seeing version A of this page! 🎉🎉🎉</span>
+        <span style={headingAccentStyles}>
+          — you're seeing version A of this page! 🎉🎉🎉
+        </span>
       </h1>
       <img
         alt="Gatsby G Logo"
@@ -21,6 +36,25 @@ export const Head: HeadFC = () => {
   return (
     <>
       <title>Home Page</title>
+      <Script
+        src={`https://www.googletagmanager.com/gtag/js?id=${process.env.GTAG}`}
+        strategy="off-main-thread"
+        id="gtag"
+        forward={[`datalayer.push`]}
+      />
+      <Script id="gtag-config" strategy="off-main-thread" forward={[`gtag`]}>
+        {`
+    window.dataLayer = window.dataLayer || []
+    window.gtag = function gtag() { window.dataLayer.push(arguments) }
+    gtag('js', new Date())
+    gtag('config', ${process.env.GTAG}, { page_path: location ? location.pathname + location.search + location.hash : undefined })
+  `}
+      </Script>
+      <Script
+        id="optimize"
+        strategy="post-hydrate"
+        src={`https://www.googleoptimize.com/optimize.js?id=${process.env.OPTIMIZE_CONTAINER}`}
+      />
     </>
   );
 };
