@@ -36,6 +36,13 @@ export const Head: HeadFC = () => {
   return (
     <>
       <title>Home Page</title>
+      <style>{`.async-hide { opacity: 0 !important} `}</style>
+      {/* Anti-flicker script, delays page load */}
+      <script>{`(function(a,s,y,n,c,h,i,d,e){s.className+=' '+y;h.start=1*new Date;
+h.end=i=function(){s.className=s.className.replace(RegExp(' ?'+y),'')};
+(a[n]=a[n]||[]).hide=h;setTimeout(function(){i();h.end=null},c);h.timeout=c;
+})(window,document.documentElement,'async-hide','dataLayer',400,
+{'CONTAINER_ID':'OPT-PBML2V3'});`}</script>
       <Script
         src={`https://www.googletagmanager.com/gtag/js?id=G-0M4VLT4RRY`}
         strategy="off-main-thread"
