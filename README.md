@@ -7,7 +7,9 @@
   Google Optimize w/Gatsby
 </h1>
 
-`index.tsx` has the scripts. The 'anti-flicker' script imo is a super hacky workaround for above-the-fold A/B tests where the starting HTML would be apparent before React hydrates; it includes a timeout that should be set as low as possible.
+Using Optimize in your Google pages should be done on a per-page basis, moreso _where_ the A/B test is happening on the page determines how you should approach it, specifically 'above-the-fold' vs 'below-the-fold'. The main differentiator: for 'above-the-fold' you need the 'anti-flicker' script provided by optimize.
+
+`index.tsx` has the scripts to run optimize. The 'anti-flicker' script imo is a super hacky workaround for above-the-fold A/B tests where the starting HTML would be apparent before React hydrates; it includes a timeout that should be set as low as possible. For all other tests the 'anti-flicker' script should be removed.
 
 ## 🚀 Quick start (Gatsby Cloud)
 
