@@ -37,7 +37,7 @@ export const Head: HeadFC = () => {
     <>
       <title>Home Page</title>
       <Script
-        src={`https://www.googletagmanager.com/gtag/js?id=${process.env.GTAG}`}
+        src={`https://www.googletagmanager.com/gtag/js?id=G-0M4VLT4RRY`}
         strategy="off-main-thread"
         id="gtag"
         forward={[`datalayer.push`]}
@@ -47,13 +47,13 @@ export const Head: HeadFC = () => {
     window.dataLayer = window.dataLayer || []
     window.gtag = function gtag() { window.dataLayer.push(arguments) }
     gtag('js', new Date())
-    gtag('config', ${process.env.GTAG}, { page_path: location ? location.pathname + location.search + location.hash : undefined })
+    gtag('config', G-0M4VLT4RRY, { page_path: location ? location.pathname + location.search + location.hash : undefined })
   `}
       </Script>
       <Script
         id="optimize"
         strategy="post-hydrate"
-        src={`https://www.googleoptimize.com/optimize.js?id=${process.env.OPTIMIZE_CONTAINER}`}
+        src={`https://www.googleoptimize.com/optimize.js?id=OPT-PBML2V3`}
       />
     </>
   );
