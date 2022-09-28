@@ -37,32 +37,35 @@ export const Head: HeadFC = () => {
     <>
       <title>Home Page</title>
       <style>{`.async-hide { opacity: 0 !important} `}</style>
-      {/* Anti-flicker script, delays page load */}
+      {/* Anti-flicker script, delays page load. Should only be used for A/B tests on content above the fold. */}
       <script>
-        {`(function(a,s,y,n,c,h,i,d,e){s.className+=' '+y;h.start=1*new Date;
-h.end=i=function(){s.className=s.className.replace(RegExp(' ?'+y),'')};
-(a[n]=a[n]||[]).hide=h;setTimeout(function(){i();h.end=null},c);h.timeout=c;
-})(window,document.documentElement,'async-hide','dataLayer',400,
-{'CONTAINER_ID':'OPT-PBML2V3'});`}
+        {`
+          (function(a,s,y,n,c,h,i,d,e){s.className+=' '+y;h.start=1*new Date;
+          h.end=i=function(){s.className=s.className.replace(RegExp(' ?'+y),'')};
+          (a[n]=a[n]||[]).hide=h;setTimeout(function(){i();h.end=null},c);h.timeout=c;
+          })(window,document.documentElement,'async-hide','dataLayer',400,
+          {'CONTAINER_ID':'${process.env.GATSBY_OPTIMIZE_CONTAINER}'});
+        `}
       </script>
+      {/* Optimize relies on GTAG. More on this example - https://www.gatsbyjs.com/docs/reference/built-in-components/gatsby-script/#off-main-thread-strategy-experimental */}
       <Script
-        src={`https://www.googletagmanager.com/gtag/js?id=${process.env.GTAG}`}
+        src={`https://www.googletagmanager.com/gtag/js?id=${process.env.GATSBY_GTAG}`}
         strategy="off-main-thread"
         id="gtag"
         forward={[`datalayer.push`]}
       />
       <Script id="gtag-config" strategy="off-main-thread" forward={[`gtag`]}>
         {`
-    window.dataLayer = window.dataLayer || []
-    window.gtag = function gtag() { window.dataLayer.push(arguments) }
-    gtag('js', new Date())
-    gtag('config', '${process.env.GTAG}', { page_path: location ? location.pathname + location.search + location.hash : undefined })
-  `}
+          window.dataLayer = window.dataLayer || []
+          window.gtag = function gtag() { window.dataLayer.push(arguments) }
+          gtag('js', new Date())
+          gtag('config', '${process.env.GATSBY_GTAG}', { page_path: location ? location.pathname + location.search + location.hash : undefined })
+        `}
       </Script>
       <Script
         id="optimize"
         strategy="post-hydrate"
-        src={`https://www.googleoptimize.com/optimize.js?id=${process.env.OPTIMIZE_CONTAINER}`}
+        src={`https://www.googleoptimize.com/optimize.js?id=${process.env.GATSBY_OPTIMIZE_CONTAINER}`}
       />
     </>
   );

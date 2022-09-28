@@ -7,6 +7,8 @@
   Google Optimize w/Gatsby
 </h1>
 
+[Example site](https://googleoptimizedemo.gatsbyjs.io/)
+
 A simple example of using Google Optimize A/B tests in a Gatsby site.
 
 Using Optimize in your Gatsby pages should be done on a per-page basis, moreso _where_ the A/B test is happening on the page determines how you should approach it, specifically 'above-the-fold' vs 'below-the-fold'. The main differentiator: for 'above-the-fold' you need the 'anti-flicker' script provided by optimize.
