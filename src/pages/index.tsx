@@ -38,13 +38,15 @@ export const Head: HeadFC = () => {
       <title>Home Page</title>
       <style>{`.async-hide { opacity: 0 !important} `}</style>
       {/* Anti-flicker script, delays page load */}
-      <script>{`(function(a,s,y,n,c,h,i,d,e){s.className+=' '+y;h.start=1*new Date;
+      <script>
+        {`(function(a,s,y,n,c,h,i,d,e){s.className+=' '+y;h.start=1*new Date;
 h.end=i=function(){s.className=s.className.replace(RegExp(' ?'+y),'')};
 (a[n]=a[n]||[]).hide=h;setTimeout(function(){i();h.end=null},c);h.timeout=c;
 })(window,document.documentElement,'async-hide','dataLayer',400,
-{'CONTAINER_ID':'OPT-PBML2V3'});`}</script>
+{'CONTAINER_ID':'OPT-PBML2V3'});`}
+      </script>
       <Script
-        src={`https://www.googletagmanager.com/gtag/js?id=G-0M4VLT4RRY`}
+        src={`https://www.googletagmanager.com/gtag/js?id=${process.env.GTAG}`}
         strategy="off-main-thread"
         id="gtag"
         forward={[`datalayer.push`]}
@@ -54,13 +56,13 @@ h.end=i=function(){s.className=s.className.replace(RegExp(' ?'+y),'')};
     window.dataLayer = window.dataLayer || []
     window.gtag = function gtag() { window.dataLayer.push(arguments) }
     gtag('js', new Date())
-    gtag('config', 'G-0M4VLT4RRY', { page_path: location ? location.pathname + location.search + location.hash : undefined })
+    gtag('config', '${process.env.GTAG}', { page_path: location ? location.pathname + location.search + location.hash : undefined })
   `}
       </Script>
       <Script
         id="optimize"
         strategy="post-hydrate"
-        src={`https://www.googleoptimize.com/optimize.js?id=OPT-PBML2V3`}
+        src={`https://www.googleoptimize.com/optimize.js?id=${process.env.OPTIMIZE_CONTAINER}`}
       />
     </>
   );
